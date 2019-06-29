@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="aditi" id="create_category_table">
+        <createTable tableName="category">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="category_name" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="tax_percent" type="NUMBER">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="modified_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-category-1">
+        <insert tableName="category">
+            <column name="category_name" value="A"/>
+            <column name="tax_percent" value="10"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-category-2">
+        <insert tableName="category">
+            <column name="category_name" value="B"/>
+            <column name="tax_percent" value="20"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-category-3">
+        <insert tableName="category">
+            <column name="category_name" value="C"/>
+            <column name="tax_percent" value="0"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
