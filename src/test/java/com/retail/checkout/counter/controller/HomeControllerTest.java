@@ -29,7 +29,7 @@ public class HomeControllerTest {
 
     @Test
     public void greet() throws Exception {
-        String expectedResult = "You are at the Checkout Counter";
+        String expectedResult = "Hello! You are at the Checkout Counter";
 
         MvcResult result = mockMvc.perform(get("/"))
                 .andExpect(status().isOk())

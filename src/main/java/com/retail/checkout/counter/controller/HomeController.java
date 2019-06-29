@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    private static final String GREET_MESSAGE = "You are at the Checkout Counter";
+    private static final String GREET_MESSAGE = "Hello! You are at the Checkout Counter";
 
     @GetMapping("/")
     public String greet() {
