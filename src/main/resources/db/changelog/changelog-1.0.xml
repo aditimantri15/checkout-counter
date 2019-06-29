@@ -14,7 +14,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="tax_percent" type="NUMBER">
+            <column name="tax_percent" type="NUMBER(10,2)">
                 <constraints nullable="false"/>
             </column>
 
