@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="aditi" id="create_product_table">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="product_name" type="VARCHAR2(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="price" type="NUMBER(10,2)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_category_id" references="category(id)"/>
+            </column>
+
+            <column name="modified_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-1">
+        <insert tableName="product">
+            <column name="product_name" value="product-A"/>
+            <column name="price" value="1000"/>
+            <column name="category_id" value="1"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-2">
+        <insert tableName="product">
+            <column name="product_name" value="product-B"/>
+            <column name="price" value="400.50"/>
+            <column name="category_id" value="3"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-3">
+        <insert tableName="product">
+            <column name="product_name" value="product-C"/>
+            <column name="price" value="720"/>
+            <column name="category_id" value="2"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-4">
+        <insert tableName="product">
+            <column name="product_name" value="product-D"/>
+            <column name="price" value="987"/>
+            <column name="category_id" value="2"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-5">
+        <insert tableName="product">
+            <column name="product_name" value="product-E"/>
+            <column name="price" value="560"/>
+            <column name="category_id" value="1"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-6">
+        <insert tableName="product">
+            <column name="product_name" value="product-F"/>
+            <column name="price" value="248"/>
+            <column name="category_id" value="3"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-7">
+        <insert tableName="product">
+            <column name="product_name" value="product-G"/>
+            <column name="price" value="5681"/>
+            <column name="category_id" value="1"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-8">
+        <insert tableName="product">
+            <column name="product_name" value="product-H"/>
+            <column name="price" value="10000"/>
+            <column name="category_id" value="3"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-9">
+        <insert tableName="product">
+            <column name="product_name" value="product-I"/>
+            <column name="price" value="490"/>
+            <column name="category_id" value="2"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="aditi" id="insert-product-10">
+        <insert tableName="product">
+            <column name="product_name" value="product-J"/>
+            <column name="price" value="620"/>
+            <column name="category_id" value="2"/>
+            <column name="modified_at" valueDate="now()"/>
+            <column name="created_at" valueDate="now()"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
