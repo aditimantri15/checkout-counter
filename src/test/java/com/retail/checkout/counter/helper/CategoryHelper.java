@@ -25,7 +25,7 @@ public class CategoryHelper {
         return Lists.newArrayList(getCategoryEntity());
     }
 
-    public static CategoryEntity getCategoryEntity() {
+    static CategoryEntity getCategoryEntity() {
         return new CategoryEntity(ID, CATEGORY_NAME, TAX_PERCENT, TIMESTAMP, TIMESTAMP);
     }
 }

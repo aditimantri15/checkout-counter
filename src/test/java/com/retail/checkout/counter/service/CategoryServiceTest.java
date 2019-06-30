@@ -15,6 +15,9 @@ import static com.retail.checkout.counter.helper.CategoryHelper.getCategoryEntit
 import static com.retail.checkout.counter.helper.CategoryHelper.getCategoryList;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 public class CategoryServiceTest {
@@ -31,10 +34,14 @@ public class CategoryServiceTest {
     }
 
     @Test
-    public void getCategories() throws Exception {
+    public void getCategories() {
         when(categoryDao.findAll()).thenReturn(getCategoryEntityList());
+
         List<Category> categories = categoryService.getCategories();
+
         assertNotNull(categories);
         assertEquals(categories, getCategoryList());
+        verify(categoryDao, times(1)).findAll();
+        verifyNoMoreInteractions(categoryDao);
     }
 }

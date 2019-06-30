@@ -12,6 +12,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static com.retail.checkout.counter.helper.ProductHelper.getProductList;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -42,18 +45,25 @@ public class ProductControllerTest {
                 .andReturn();
 
         String actualResult = result.getResponse().getContentAsString();
+
         assertNotNull(actualResult);
+        verify(productService, times(1)).getProducts();
+        verifyNoMoreInteractions(productService);
     }
 
     @Test
     public void getProductsMethodNotAllowed() throws Exception {
         mockMvc.perform(put("/products"))
                 .andExpect(status().isMethodNotAllowed());
+
+        verify(productService, times(0)).getProducts();
     }
 
     @Test
     public void getProductsNotFound() throws Exception {
         mockMvc.perform(put("/product"))
                 .andExpect(status().isNotFound());
+
+        verify(productService, times(0)).getProducts();
     }
 }

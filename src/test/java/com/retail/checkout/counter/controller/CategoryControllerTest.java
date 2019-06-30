@@ -12,6 +12,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static com.retail.checkout.counter.helper.CategoryHelper.getCategoryList;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -43,17 +46,24 @@ public class CategoryControllerTest {
 
         String actualResult = result.getResponse().getContentAsString();
         assertNotNull(actualResult);
+
+        verify(categoryService, times(1)).getCategories();
+        verifyNoMoreInteractions(categoryService);
     }
 
     @Test
     public void getCategoriesMethodNotAllowed() throws Exception {
         mockMvc.perform(put("/categories"))
                 .andExpect(status().isMethodNotAllowed());
+
+        verify(categoryService, times(0)).getCategories();
     }
 
     @Test
     public void getCategoriesNotFound() throws Exception {
         mockMvc.perform(put("/category"))
                 .andExpect(status().isNotFound());
+
+        verify(categoryService, times(0)).getCategories();
     }
 }
