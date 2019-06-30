@@ -9,6 +9,8 @@ import com.retail.checkout.counter.model.CheckoutRequest;
 import com.retail.checkout.counter.model.Product;
 import com.retail.checkout.counter.model.BilledProduct;
 import com.retail.checkout.counter.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Autowired
     private ProductDao productDao;
@@ -67,6 +71,7 @@ public class ProductServiceImpl implements ProductService {
 
     private void validateProductEntity(ProductEntity productEntity, Long productId) {
         if (!Optional.ofNullable(productEntity).isPresent()) {
+            LOG.error("Invalid Product Id: {}", productId);
             throw new BadRequestException("Invalid Product Id: " + productId);
         }
     }

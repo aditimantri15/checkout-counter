@@ -53,7 +53,6 @@
 			<version>${lombok.version}</version>
 		</dependency>
 
-		<!-- Spring liquibase dependencies -->
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
@@ -61,14 +60,11 @@
 			<version>${liquibase-core.version}</version>
 		</dependency>
 
-		<!-- Use MySQL Connector-J -->
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<!-- Swagger dependencies -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
